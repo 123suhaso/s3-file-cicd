@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 File Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>S3 File Manager</h1>
+        </header>
+
+        <nav>
+            <a href="{{ url_for('upload_file') }}" class="btn upload-btn">Upload File</a>
+        </nav>
+
+        <center>
+            <section class="file-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>File Name</th>
+                            <th>Delete</th>
+                            <th>Copy</th>
+                            <th>Move</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for file in files %}
+                        <tr>
+                            <td>{{ file.Key }}</td>
+                            <td><a href="{{ url_for('delete_file', filename=file.Key) }}" class="btn delete-btn">Delete</a></td>
+                            <td><a href="{{ url_for('copy_file', filename=file.Key) }}" class="btn copy-btn">Copy</a></td>
+                            <td><a href="{{ url_for('move_file', filename=file.Key, new='new') }}" class="btn move-btn">Move</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </center>
+
+        <!-- Create New Bucket Section -->
+        <section class="create-bucket">
+            <h2>Create New Bucket</h2>
+            <form action="{{ url_for('create_bucket') }}" method="POST">
+                <input type="text" name="bucket_name" placeholder="Enter bucket name" required>
+                <button type="submit" class="btn create-btn">Create Bucket</button>
+            </form>
+        </section>
+
+        <!-- List Buckets Section -->
+        <center>
+            <section class="bucket-table">
+                <h2>Existing Buckets</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bucket Name</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bucket in buckets %}
+                        <tr>
+                            <td>{{ bucket.Name }}</td>
+                            <td><a href="{{ url_for('delete_bucket', bucket_name=bucket.Name) }}" class="btn delete-btn">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </center>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+nav {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.upload-btn {
+    background-color: #4CAF50;
+}
+
+.upload-btn:hover{
+    background-color: rgb(44, 243, 44);
+    color: black;
+    border: 1px solid black;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.delete-btn:hover{
+    background-color: #f59d97;
+    color: black;
+    border: 1px solid black;
+}
+
+.copy-btn {
+    background-color: #2196F3;
+}
+
+.copy-btn:hover{
+    background-color: #9ed2fd;
+    color: black;
+    border: 1px solid black;
+}
+
+.move-btn {
+    background-color: #FF9800;
+}
+.move-btn:hover{
+    background-color: #fce0b7;
+    color: black;
+    border: 1px solid black;
+}
+
+.create-btn {
+    background-color: #4CAF50;
+}
+.create-btn:hover{
+    background-color: #a1f0a4;
+    color: black;
+    border: 1px solid black;
+}
+
+.file-table, .bucket-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.bucket-table th,.bucket-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    width: 80%;
+    border: 1px solid black;
+}
+table{
+    border: 1px solid black;
+}
+
+.file-table th, 
+.file-table td{
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.file-table th, .bucket-table th {
+    background-color: #f2f2f2;
+    border: 1px solid black;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-bucket {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-bucket h2 {
+    margin-bottom: 20px;
+}
+
+.bucket-table {
+    margin-top: 30px;
+}
+
+.bucket-table td a,
+.file-table td a {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+}
