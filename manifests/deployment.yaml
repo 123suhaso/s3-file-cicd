@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: s3-file-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: s3-file-manager
+  template:
+    metadata:
+      labels:
+        app: s3-file-manager
+    spec:
+      containers:
+      - name: flask-app
+        image: your_dockerhub_username/s3-file-manager:$(IMAGE_TAG)
+        ports:
+        - containerPort: 5000
+        envFrom:
+        - secretRef:
+            name: aws-secrets
