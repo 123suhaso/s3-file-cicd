@@ -1,19 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-s3-deployment
+  name: s3-file-manager
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-s3-app
+      app: s3-file-manager
   template:
     metadata:
       labels:
-        app: flask-s3-app
+        app: s3-file-manager
     spec:
+      imagePullSecrets:
+      - name: acr-secret
       containers:
-      - name: flask-s3-container
-        image: yourACRName.azurecr.io/flask-s3-app:IMAGE_TAG_PLACEHOLDER
+      - name: flask-s3-app
+        image: suhaso1234.azurecr.io/flask-s3-app:IMAGE_TAG_PLACEHOLDER
         ports:
         - containerPort: 5000
+        envFrom:
+        - secretRef:
+            name: aws-secrets
