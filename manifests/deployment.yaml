@@ -16,7 +16,7 @@ spec:
       - name: acr-secret
       containers:
       - name: flask-s3-app
-        image: suhaso1234.azurecr.io/flask-s3-app:d40af30cc66aeec159da1e6add305233dad5780d
+        image: suhaso1234.azurecr.io/flask-s3-app:IMAGE_TAG_PLACEHOLDER
         ports:
         - containerPort: 5000
         envFrom:
