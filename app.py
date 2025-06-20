@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
-from dotenv import load_dotenv
+
 
 import boto3
-load_dotenv()
+
 import os
 app = Flask(__name__)
 
@@ -12,6 +12,12 @@ AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_DEFAULT_REGION = os.getenv("AWS_DEFAULT_REGION")
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
+
+print(f"AWS_ACCESS_KEY_ID = {AWS_ACCESS_KEY_ID}")
+print(f"AWS_SECRET_ACCESS_KEY is set? {'Yes' if AWS_SECRET_ACCESS_KEY else 'No'}")
+print(f"AWS_DEFAULT_REGION = {AWS_DEFAULT_REGION}")
+print(f"S3_BUCKET_NAME = {S3_BUCKET_NAME}")
+
 
 # Initialize the S3 client with environment variables
 s3 = boto3.client(
